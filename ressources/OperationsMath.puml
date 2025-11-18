@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Element{
+    eval():int
+}
+
+abstract class Operation
+
+class Plus
+class Moins
+class Mult
+class Div
+
+Element <|.. Operation
+Element <|.. Value
+
+Operation <|-- Plus
+Operation <|-- Moins
+Operation <|-- Mult
+Operation <|-- Div
+
+Operation --> "a,b" Element
+
+
+@enduml
