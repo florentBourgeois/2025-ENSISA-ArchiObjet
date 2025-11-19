@@ -12,6 +12,10 @@ class Moins
 class Mult
 class Div
 
+class Value{
+    int valeur
+}
+
 Element <|.. Operation
 Element <|.. Value
 
