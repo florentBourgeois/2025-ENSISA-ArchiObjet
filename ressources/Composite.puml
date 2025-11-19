@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+Element <|-- A
+Element <|-- B
+Element <|-- C
+Element <|-- D
+
+Element <|-- Composite
+Element <- "*" Composite
+
+
+@enduml

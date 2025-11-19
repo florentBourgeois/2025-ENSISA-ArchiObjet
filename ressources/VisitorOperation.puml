@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Element{
+    eval():int
+    accept(VisitorOperation)
+}
+
+abstract class Operation
+
+class Plus
+class Moins
+class Mult
+class Div
+
+class Value{
+    int valeur
+    accept(VisitorOperation)
+}
+
+class Plus{
+    accept(VisitorOperation)
+}
+
+
+Element <|.. Operation
+Element <|.. Value
+
+Operation <|-- Plus
+Operation <|-- Moins
+Operation <|-- Mult
+Operation <|-- Div
+
+Operation --> "a,b" Element
+
+interface VisitorOperation{
+    visitValue(Value)
+    visitPlus(Plus)
+    visit...(...)
+}
+
+class Math {
+    visitValue(Value)
+    visitPlus(Plus)
+    visit...(...)
+}
+
+Main --> Element
+
+Main -> VisitorOperation
+ VisitorOperation <|-- Math
+ VisitorOperation <|-- Fonction
+ VisitorOperation <|-- Latex
+
+
+@enduml
