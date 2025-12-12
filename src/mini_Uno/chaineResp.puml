@@ -1,12 +1,36 @@
 @startuml
 
 
+class Table {
+    isReversed : boolean
+    isNextMustPass : boolean
+    getPlayerAtPosition(int) : Player
+    getPlayerPosition(Player) : int
+    getPlayersNumber() : int
+    getLastPlayedCard() : Card
+    getPlayerAfter(Player) : Player
+    getPlayerBefore(Player) : Player
+    getPlayerXPlaceAfter(Player, int) : Player
+    getPlayerXPlaceBefore(Player, int) : Player
+}
 
-class Hand{  }
+
+
+
+
+class Hand{
+    pickedCard(Card)
+    pickSeverallCards(List<Card>)
+    holdsCard(Card)
+    nbrOfCards() : int
+}
 
 class Player{
     uuid: UUID
     name: String
+    getNumberOfCards() : int
+    getPosition() : int
+    getterSetter
 }
 
 class Card{
@@ -14,32 +38,29 @@ class Card{
     value : String
 }
 
-class Deck{
-
+interface GameRuleCheckerInterface {
+     isValidMove(Table , Player , Card);
 }
 
-Table --> Deck
+
+
 Table -> "*" Player
+Table -> "lastPlayer" Player
+Table --> "lastPlayedCard" Card
 Player -> Table
 
 
 Player --> Hand
 Hand --> "*" Card
-Deck -> "allCards *\nplayedCards * \ndrawCards *" Card
-
-
-interface GameRuleCheckerInterface
-interface CardDealerInterface
 
 
 
-CardDealerInterface <|.. Simple
-CardDealerInterface <|.. Uno
-Uno --> Deck
+
+
+
 
 GameRuleCheckerInterface <|.. AlwaysTrue
 GameRuleCheckerInterface <|.. AlwaysFalse
-GameRuleCheckerInterface <|.. Random
 GameRuleCheckerInterface <|.. UNO
 
 
