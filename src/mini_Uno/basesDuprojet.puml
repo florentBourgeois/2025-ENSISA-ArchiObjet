@@ -53,20 +53,20 @@ Player -> Table
 Player --> Hand
 Hand --> "*" Card
 
-abstract class UNO{
+abstract class UnoGameRuleChecker{
     setNext(Handler)
 }
 
-UNO <- UNO : next
-UNO <|-- ValueHandler
-UNO <|-- ColorHandler
+UnoGameRuleChecker <- UnoGameRuleChecker : next
+UnoGameRuleChecker <|-- ValueHandler
+UnoGameRuleChecker <|-- ColorHandler
 
 
 
 
 GameRuleCheckerInterface <|.. AlwaysTrue
 GameRuleCheckerInterface <|.. AlwaysFalse
-GameRuleCheckerInterface <|.. UNO
+GameRuleCheckerInterface <|.. UnoGameRuleChecker
 
 
 

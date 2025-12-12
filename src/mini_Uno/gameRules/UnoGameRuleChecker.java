@@ -5,22 +5,17 @@ import mini_Uno.Player;
 import mini_Uno.Table;
 import mini_Uno.cards.Card;
 
-public class UnoGameRuleChecker implements GameRuleCheckerInterface{
+public abstract class UnoGameRuleChecker implements GameRuleCheckerInterface{
+
+    protected UnoGameRuleChecker next;
 
     public UnoGameRuleChecker() {
     }
 
-
-    @Override
-    public boolean isValidMove(Table table, Player player, Card played) {
-        // this throws an exception because it is not yet implemented
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void setNext(UnoGameRuleChecker next) {
+        this.next = next;
     }
 
-    private boolean isPlayerTurn(Player player, Table table){
-        // this throws an exception because it is not yet implemented
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
 
 
