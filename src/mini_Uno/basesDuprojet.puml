@@ -1,0 +1,68 @@
+@startuml
+
+
+class Table {
+    isReversed : boolean
+    isNextMustPass : boolean
+    getPlayerAtPosition(int) : Player
+    getPlayerPosition(Player) : int
+    getPlayersNumber() : int
+    getLastPlayedCard() : Card
+    getPlayerAfter(Player) : Player
+    getPlayerBefore(Player) : Player
+    getPlayerXPlaceAfter(Player, int) : Player
+    getPlayerXPlaceBefore(Player, int) : Player
+}
+
+
+
+
+
+class Hand{
+    pickedCard(Card)
+    pickSeverallCards(List<Card>)
+    holdsCard(Card)
+    nbrOfCards() : int
+}
+
+class Player{
+    uuid: UUID
+    name: String
+    getNumberOfCards() : int
+    getPosition() : int
+    getterSetter
+}
+
+class Card{
+    color : String
+    value : String
+}
+
+interface GameRuleCheckerInterface {
+     isValidMove(Table , Player , Card);
+}
+
+
+
+Table -> "*" Player
+Table -> "lastPlayer" Player
+Table --> "lastPlayedCard" Card
+Player -> Table
+
+
+Player --> Hand
+Hand --> "*" Card
+
+
+
+
+
+
+
+GameRuleCheckerInterface <|.. AlwaysTrue
+GameRuleCheckerInterface <|.. AlwaysFalse
+GameRuleCheckerInterface <|.. UNO
+
+
+
+@enduml
