@@ -53,8 +53,13 @@ Player -> Table
 Player --> Hand
 Hand --> "*" Card
 
+abstract class UNO{
+    setNext(Handler)
+}
 
-
+UNO <- UNO : next
+UNO <|-- ValueHandler
+UNO <|-- ColorHandler
 
 
 
