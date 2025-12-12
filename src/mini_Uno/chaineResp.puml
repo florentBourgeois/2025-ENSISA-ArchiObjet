@@ -1,0 +1,47 @@
+@startuml
+
+
+
+class Hand{  }
+
+class Player{
+    uuid: UUID
+    name: String
+}
+
+class Card{
+    color : String
+    value : String
+}
+
+class Deck{
+
+}
+
+Table --> Deck
+Table -> "*" Player
+Player -> Table
+
+
+Player --> Hand
+Hand --> "*" Card
+Deck -> "allCards *\nplayedCards * \ndrawCards *" Card
+
+
+interface GameRuleCheckerInterface
+interface CardDealerInterface
+
+
+
+CardDealerInterface <|.. Simple
+CardDealerInterface <|.. Uno
+Uno --> Deck
+
+GameRuleCheckerInterface <|.. AlwaysTrue
+GameRuleCheckerInterface <|.. AlwaysFalse
+GameRuleCheckerInterface <|.. Random
+GameRuleCheckerInterface <|.. UNO
+
+
+
+@enduml
