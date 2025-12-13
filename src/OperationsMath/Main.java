@@ -2,8 +2,11 @@ package OperationsMath;
 
 import OperationsMath.composite.Moins;
 import OperationsMath.composite.Mult;
-import OperationsMath.composite.Operation;
 import OperationsMath.composite.Plus;
+import OperationsMath.visitor.VisitorLaTeX;
+import OperationsMath.visitor.VisitorMathInfixe;
+import OperationsMath.visitor.VisitorMathPrefixe;
+import OperationsMath.visitor.VisitorOperation;
 
 public class Main {
 
@@ -20,12 +23,27 @@ public class Main {
 
         Element mult = new Mult(new Value(3), moins);
 
-        Operation mult2 = new Mult(mult, v3);
-        mult2.b = mult2;
+        // ATTENTION BOUCLE
+        //Operation mult2 = new Mult(mult, v3);
+        //mult2.b = mult2;
 
-        System.out.print("Affichage de mult : " + mult2.eval());
+        System.out.print("Affichage de mult : " + mult.eval());
 
 
+        VisitorOperation v = new VisitorMathInfixe();
+        v.reset();
+        mult.accept(v);
+        System.out.println("\nL'opération infixee est : " + v.getResult());
+
+        v = new VisitorMathPrefixe();
+        v.reset();
+        mult.accept(v);
+        System.out.println("L'opération prefixee est : " + v.getResult());
+
+        v = new VisitorLaTeX();
+        v.reset();
+        mult.accept(v);
+        System.out.println("L'opération LaTeX est : " + v.getResult());
     }
 
 }

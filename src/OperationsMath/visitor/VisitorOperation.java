@@ -8,10 +8,13 @@ import OperationsMath.composite.Plus;
 
 public interface VisitorOperation {
 
-    StringBuffer visitePlus(Plus op);
-    StringBuffer visiteMult(Mult op);
-    StringBuffer visiteMoins(Moins op);
-    StringBuffer visiteDiv(Div op);
-    StringBuffer visiteValue(Value op);
+    public void reset();
+    public String getResult();
+
+    public void visitePlus(Plus op);
+    public void visiteMult(Mult op);
+    public void visiteMoins(Moins op);
+    public void visiteDiv(Div op);
+    public void visiteValue(Value op);
 
 }
