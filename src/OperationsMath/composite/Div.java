@@ -1,4 +1,6 @@
-package OperationsMath;
+package OperationsMath.composite;
+
+import OperationsMath.Element;
 
 public class Div extends Operation{
 

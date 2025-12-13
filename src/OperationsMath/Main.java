@@ -1,5 +1,10 @@
 package OperationsMath;
 
+import OperationsMath.composite.Moins;
+import OperationsMath.composite.Mult;
+import OperationsMath.composite.Operation;
+import OperationsMath.composite.Plus;
+
 public class Main {
 
     public static void main(String[] args) {

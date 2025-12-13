@@ -1,6 +1,8 @@
-package OperationsMath;
+package OperationsMath.composite;
 
-public abstract class Operation implements Element{
+import OperationsMath.Element;
+
+public abstract class Operation implements Element {
 
     public Element a,b;
 
