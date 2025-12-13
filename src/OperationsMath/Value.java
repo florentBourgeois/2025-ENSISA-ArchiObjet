@@ -1,5 +1,7 @@
 package OperationsMath;
 
+import OperationsMath.visitor.VisitorOperation;
+
 public class Value implements  Element{
 
     public int valeur;
@@ -11,6 +13,11 @@ public class Value implements  Element{
     @Override
     public int eval() {
         return valeur;
+    }
+
+    @Override
+    public void accept(VisitorOperation v) {
+        v.visiteValue(this);
     }
 
     public static void main(String[] args) {

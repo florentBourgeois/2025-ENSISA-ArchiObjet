@@ -4,5 +4,5 @@ Le but de ce projet est d'illustrer l'implémentation de certains design pattern
 
 ## Projets
 
-- **OperationsMath** : [README.md](src/OperationsMath/README.md) (composite + visior)
-- **mini_Uno** : [README.md](src/mini_Uno/README.md) (chaine de responsabilité)
+- **OperationsMath** : [OperationsMath](src/OperationsMath) (composite + visior)
+- **mini_Uno** : [mini_Uno](src/mini_Uno) (chaine de responsabilité)

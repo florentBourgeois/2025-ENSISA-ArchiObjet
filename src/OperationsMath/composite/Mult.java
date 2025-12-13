@@ -1,6 +1,7 @@
 package OperationsMath.composite;
 
 import OperationsMath.Element;
+import OperationsMath.visitor.VisitorOperation;
 
 public class Mult extends Operation{
 
@@ -14,5 +15,9 @@ public class Mult extends Operation{
         return a.eval()*b.eval();
     }
 
+    @Override
+    public void accept(VisitorOperation v) {
+        v.visiteMult(this);
+    }
 
 }
